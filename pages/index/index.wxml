@@ -1,14 +1,40 @@
-<!--index.wxml-->
-<view class="container"> 
-  <view class="userinfo">
-    <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <button type="primary" size="mini"  open-type="contact" bindcontact="getContact"> Contact </button>
-    <block>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="index-container">
+  <!-- 搜索框 -->
+  <SearchInput></SearchInput>
+  <!-- 轮播图 -->
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" interval="{{3000}}" duration="{{500}}">
+    <navigator>
+      <block wx:for="{{swiperList}}" wx:key="index">
+        <swiper-item>
+          <image mode="widthFix" class="swiper-image" src="{{item}}" />
+        </swiper-item>
+      </block>
+    </navigator>
+  </swiper>
+  <!-- 分类导航 -->
+  <view class="cate-navbar">
+    <navigator wx:for="{{cateNavList}}" wx:key="index">
+      <image mode="widthFix" src="{{item.img}}" />
+      <text>{{item.title}}</text>
+    </navigator>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <!-- 楼层 -->
+  <view class="floor-container">
+    <navigator>
+      <text>分类</text>
+      <image mode="widthFix" src="../../images/floor1.png" />
+    </navigator>
+    <navigator>
+      <text>秒杀拍</text>
+      <image mode="widthFix" src="../../images/floor2.png" />
+    </navigator>
+    <navigator>
+      <text>超市购</text>
+      <image mode="widthFix" src="../../images/floor3.jpg" />
+    </navigator>
+    <navigator>
+      <text>母婴品</text>
+      <image mode="widthFix" src="../../images/floor4.png" />
+    </navigator>
   </view>
 </view>

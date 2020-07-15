@@ -1,57 +1,38 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
+import { request } from '../../request/index.js';
+//Page Object
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    swiperList: [],
+    cateNavList:[]
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+  //options(Object)
+  onLoad: function (options) {
+    this.getSwiperList(),
+    this.getCateNavList()
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+  getSwiperList() {
+    //发送请求获取轮播图数据
+    // request({ url: "http://bitest1.softorg.com:81/api/FileManage/GetFileTree?id=1" }).then(res => {
+    //   console.log(res)
+    // }).catch(error => {
+    //   console.log(error)
+    // })
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      swiperList: [
+        '../../images/1.png',
+        '../../images/2.png',
+        '../../images/3.png'
+      ]
     })
   },
-  getContact: function(e) {
-    console.log(e)
+  getCateNavList() {
+    this.setData({
+      cateNavList:[
+        {title:"分类",img:"../../images/p1.png"},
+        {title:"秒杀拍",img:"../../images/p2.png"},
+        {title:"超市购",img:"../../images/p3.png"},
+        {title:"母婴品",img:"../../images/p4.png"},
+      ]
+    })
   }
-})
+});

@@ -1,0 +1,14 @@
+/* components/SearchInput/SearchInput.wxss */
+.search-button {
+  padding: 10rpx;
+  background-color: var(--themeColor);
+}
+.search-button button {
+  height: 60rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+.search-button button icon {
+  vertical-align: middle;
+  margin-right: 5rpx;
+}

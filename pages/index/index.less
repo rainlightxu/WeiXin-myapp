@@ -1,0 +1,47 @@
+.index-container {
+  swiper {
+    height: 340rpx;
+
+    image {
+      width: 100%;
+    }
+  }
+
+  .cate-navbar {
+    display: flex;
+
+    navigator {
+      padding: 30rpx;
+      flex   : 1;
+
+      image {
+        border-radius   : 50rpx;
+        background-color: rgb(161, 161, 202);
+        width           : 100%;
+      }
+
+      text {
+        margin-left: 25rpx;
+      }
+    }
+  }
+
+  .floor-container {
+    navigator {
+      &:first-child {
+        border-top: 1px solid #ccc;
+      }
+
+      image {
+        width: 100%;
+      }
+
+      text {
+        margin   : 10rpx;
+        font-size: 32rpx;
+        color    : goldenrod;
+
+      }
+    }
+  }
+}

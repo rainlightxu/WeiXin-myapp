@@ -1,0 +1,5 @@
+<view class="search-button">
+    <navigator url="/pages/search/index" open-type="navigate">
+        <button type="default"><icon class="icon-small" type="search" size="14"></icon>搜索</button>
+    </navigator>
+</view>
